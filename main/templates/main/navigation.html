@@ -1,0 +1,12 @@
+{% load static %}
+
+<header id='navbar'>
+        <a href="#" class="logo">Designer<span>support</span></a>
+        <ul id="nav_ul">
+            <li><a href="{% url 'main' %}" class="active">Home</a></li>
+            <li><a href="{% url 'products' %}">Projects</a></li>
+            <li><a href="#">About</a></li>
+            <li><a href="#">Constact</a></li>
+        </ul>
+        <span class="menuIcon" onclick="menuToggle()"></span>
+    </header>
