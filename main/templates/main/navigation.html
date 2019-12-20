@@ -2,9 +2,13 @@
 
 <header id='navbar'>
         <a href="#" class="logo">Designer<span>support</span></a>
+        <div class="lang">
+            <a href="/pl/{{current_path}}"><img src="{% static '/img/poland-flag-waving-icon-32.png' %}" alt="" ></a>
+            <a href="/en/{{current_path}}" ><img src="{% static '/img/united-kingdom-flag-waving-icon-32.png' %}" alt="" ></a>
+        </div>
         <ul id="nav_ul">
-            <li><a href="{% url 'main' %}" class="active">Home</a></li>
-            <li><a href="{% url 'products' %}">Projects</a></li>
+            <li><a href="{% url 'main' %}" {% if active == 'home' %} class="active" {% endif %}>Home</a></li>
+            <li><a href="{% url 'projects' %}" {% if active == 'projects' %} class="active" {% endif %}>Projects</a></li>
             <li><a href="#">About</a></li>
             <li><a href="#">Constact</a></li>
         </ul>

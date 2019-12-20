@@ -7,8 +7,10 @@
         <li><a href="#"><img src="{% static '/img/linkedin.png'%}" alt="" srcset=""></a></li>
         <li><a href=""><img src="{% static '/img/twitter.png'%}" alt="" srcset=""></a></li>
     </ul>
-    <ul class="arrows">
-        <li><a><img src="{% static '/img/left-arrow.png'%}" onclick="nextSlide(-1)" alt=""></a></li>
-        <li><a><img src="{% static '/img/right-arrow.png'%}" onclick="nextSlide(1)" alt=""></a></li>
-    </ul>
+    {% if active == 'home' %}
+        <ul class="arrows">
+            <li><a><img src="{% static '/img/left-arrow.png'%}" onclick="nextSlide(-1)" alt=""></a></li>
+            <li><a><img src="{% static '/img/right-arrow.png'%}" onclick="nextSlide(1)" alt=""></a></li>
+        </ul>
+    {% endif %}
 </div>

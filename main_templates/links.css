@@ -1,0 +1,6 @@
+{% load static %}
+
+.content_products{
+    
+    background: #000 url("{% static 'img/project_background.jpg' %}");
+}
