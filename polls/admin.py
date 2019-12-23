@@ -1,5 +1,13 @@
 from django.contrib import admin
 
+
+# customizing admin site
+admin.site.site_header = "System Admin"
+admin.site.site_title = "System Admin Area"
+admin.site.index_title = "Welcome to the Admin Area!"
+
+
+
 # Register your models here.
 from .models import Question, Choice
 

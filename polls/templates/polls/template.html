@@ -6,7 +6,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Polling app</title>
+    <title>Polling {{ title }}</title>
     <link rel="stylesheet" href="{% static '/css/polls.css' %}">
 </head>
 <body>
@@ -16,7 +16,7 @@
         {% include 'polls/navigation.html' %}
         
             {% block content %}
-        
+                
             {% endblock content %}
         
         {% include 'polls/footer.html' %}

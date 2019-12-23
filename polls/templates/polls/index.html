@@ -6,6 +6,22 @@
 
 {% block content %}
 
-<h1> Hi there! {{ test }} </h1>
+<div class="polls">
+    <h2> Hello list of polls below </h2>
+    {% for q in latest_questions %}
+
+        <div class="row">
+            <p> {{ q.question_text }}</p>
+            <div>
+                <a class="primary" href="{% url 'polls:p_details' q.id %}">Details</a>
+                <a class="secondary" href="{% url 'polls:p_results' q.id %}">Results</a>
+            </div>
+        </div>    
+    
+    {% empty %}
+        <p>There is no question</p>
+    {% endfor %}
+
+</div>
 
 {% endblock content %}
