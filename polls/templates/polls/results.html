@@ -1,1 +1,18 @@
-results here
+{% extends 'polls/template.html' %}
+
+{% load i18n %}
+
+{% load static %}
+
+{% block content %}
+
+<div class="res-navi">
+    <a href="{% url 'polls:main' %}">Go to questions</a>
+</div>
+
+<div class="polls">
+    <h2> Hello list of polls below </h2>
+
+</div>
+
+{% endblock content %}

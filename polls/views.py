@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 from django.http import Http404
 
 # Create your views here.
@@ -29,7 +29,7 @@ def details(request, pk):
 
 def results(request, pk):
     
-    results = None
+    results = get_object_or_404(Question, pk=pk)
     context = {'title':'details page', 'results':results}
 
     return render(request, 'polls/results.html', context)
