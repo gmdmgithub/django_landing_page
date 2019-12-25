@@ -30,6 +30,14 @@ def details(request, pk):
 def results(request, pk):
     
     results = get_object_or_404(Question, pk=pk)
-    context = {'title':'details page', 'results':results}
+    context = {'title':'results page', 'question':results}
 
     return render(request, 'polls/results.html', context)
+
+def vote(request, pk):
+
+    vote = get_object_or_404(Question, pk=pk)
+    
+    context = {'title':'vote page', 'vote':vote}
+
+    return render(request, 'polls/vote.html', context)

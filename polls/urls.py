@@ -8,7 +8,8 @@ urlpatterns = [
     
     path( '', views.home,  name='main'),
 
-    path( 'details/<str:pk>', views.details,  name='p_details'),
-    path( 'results/<str:pk>', views.results,  name='p_results'),
+    path( 'details/<str:pk>', views.details,  name='details'),
+    path( 'results/<str:pk>', views.results,  name='results'),
+    path( 'vote/<str:pk>', views.vote,  name='vote'),
 
 ]
