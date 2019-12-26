@@ -1,1 +1,38 @@
-Details will be here
+{% extends 'polls/template.html' %}
+
+{% load i18n %}
+
+{% load static %}
+
+
+{% block content %}
+
+<div class="polls">
+    <h2>Results for: <q>{{question.question_text}}</q></h2>
+
+    {% if error_message %}
+        <p class="error"> {{ error_message}} </p>
+    {% endif %}
+
+    <form action="{% url 'polls:vote' question.id%}" method="POST">
+
+        {% csrf_token %}
+
+        {% for choice in question.choice_set.all %}
+
+            <div class="row">
+                <input type="radio" name="chioce" class="choice" id="choice{{forloop.counter}}" value="{{choice.id}}" />
+                <label for="choice{{forloop.counter}}"> {{choice.choice_text}}</label>
+            </div>
+        
+        {% endfor %}
+         
+        <input type="submit" value="Vote" class="submit-main">
+    </form>
+
+    <div class="res-navi">
+        <a href="{% url 'polls:main' %}">Go to questions</a>
+    </div>    
+</div>
+
+{% endblock content %}
