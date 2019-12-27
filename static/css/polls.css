@@ -5,6 +5,11 @@
 :root {
     --btn-primary-color: lightgreen;
     --btn-secondary-color: orange;
+    --main-colour: #444;
+    --bg-colour: #f4f4f4;
+    --primary-color: #cc0000;
+	--secondary-color: #7c0000;
+
   }
 
 @import url('https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700&display=swap');
