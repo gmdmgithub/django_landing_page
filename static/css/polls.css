@@ -19,11 +19,52 @@
     font-family:'Poppins', sans-serif
 
 }
-.container{
-    position: relative;
-    padding: 50px 100px;
-    min-height: calc(100vh);
+
+/* sticky footer from https://css-tricks.com/couple-takes-sticky-footer/ */
+html, body {
+    height: 100%;
 }
+body {
+    display: grid;
+    grid-gap: 2px;
+    height: 100%;
+    grid-template-rows: 40px 1fr 50px;
+    grid-template-columns: 30% 1fr;
+
+    grid-template-areas:
+              "nav nav"
+              "side main"
+              "foot foot";
+}
+nav {
+    grid-area: nav;
+    background-color: #7E57C2;
+}
+
+.side{
+    grid-area: side;
+    background-color: #9bb191;
+}
+
+.container{
+    grid-area: main;
+    /* min-height: calc(100vh); */
+}
+.footer {
+    grid-area: foot;
+}
+/* sticky footer end*/
+
+.footer {
+    background: #42A5F5;
+    color: white;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
 
 .polls{
     display: flex;

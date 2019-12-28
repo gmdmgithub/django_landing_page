@@ -10,17 +10,14 @@
     <link rel="stylesheet" href="{% static '/css/polls.css' %}">
 </head>
 <body>
-    
+    {% include 'polls/navigation.html' %}
+    <div class='side'>Side bar</div>
     <div class="container">
-
-        {% include 'polls/navigation.html' %}
-        
             {% block content %}
                 
             {% endblock content %}
-        
-        {% include 'polls/footer.html' %}
-        </div> <!-- class="container-fluid" -->
+     </div> <!-- class="container-fluid" -->
+{% include 'polls/footer.html' %}
 <script src="{% static '/js/polls.js' %}"></script>
 </body>
 </html>
