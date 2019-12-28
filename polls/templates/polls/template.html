@@ -8,10 +8,12 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Polling {{ title }}</title>
     <link rel="stylesheet" href="{% static '/css/polls.css' %}">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css">
 </head>
 <body>
     {% include 'polls/navigation.html' %}
-    <div class='side'>Side bar</div>
+    {% include 'polls/side.html' %}
     <div class="container">
             {% block content %}
                 

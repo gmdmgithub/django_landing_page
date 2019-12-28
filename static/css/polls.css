@@ -20,6 +20,10 @@
 
 }
 
+a{
+    text-decoration: none;
+}
+
 /* sticky footer from https://css-tricks.com/couple-takes-sticky-footer/ */
 html, body {
     height: 100%;
@@ -39,11 +43,34 @@ body {
 nav {
     grid-area: nav;
     background-color: #7E57C2;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
 }
+
+nav > *{
+    margin: 0 10px;
+}
+
+
 
 .side{
     grid-area: side;
     background-color: #9bb191;
+    padding: 30px 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.side h3{
+    text-transform: uppercase;
+    margin-bottom: 10px;
+    align-self: flex-start;
+}
+.side p{
+    text-align: justify;
 }
 
 .container{
@@ -62,6 +89,18 @@ nav {
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+.footer >*{
+    margin: 0 10px;
+}
+
+.footer i{
+    transition: 0.5s ease-in-out;
+    cursor: pointer;
+}
+.footer i:hover{
+    transform: translateY(-8px);
 }
 
 
