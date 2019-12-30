@@ -59,6 +59,8 @@ MIDDLEWARE = [
 
 ROOT_URLCONF = 'landing_page.urls'
 
+MESSAGE_LEVEL = 10  # DEBUG
+
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',

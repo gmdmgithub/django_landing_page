@@ -1,5 +1,6 @@
 from django.shortcuts import render, get_object_or_404
 from django.http import Http404, HttpResponseRedirect
+from django.contrib import messages
 
 from django.urls import reverse
 # Create your views here.
@@ -20,6 +21,8 @@ def details(request, pk):
     details = None
     context = {'title':'details page'}
 
+    messages.success(request, 'Please vote')
+
     try:
         question = Question.objects.get(pk=pk)
         context['question'] = question
@@ -38,6 +41,7 @@ def results(request, pk):
 def vote(request, pk):
 
     print(request.POST.get('choice', None))
+
     question = get_object_or_404(Question, pk=pk)
     try:
         selected_choice = question.choice_set.get(pk=request.POST['choice'])

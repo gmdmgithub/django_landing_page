@@ -10,6 +10,14 @@
 <div class="polls">
     <h2>Results for: <q>{{question.question_text}}</q></h2>
 
+    {% if messages %}
+    <ul class="messages">
+        {% for message in messages %}
+            <li class="{{ message.tags }}">{{ message }}</li>
+        {% endfor %}
+    </ul>
+    {% endif %}
+
     {% if error_message %}
         <p class="error"> {{ error_message}} </p>
     {% endif %}
