@@ -73,10 +73,19 @@ nav > *{
     text-align: justify;
 }
 
+
+
 .container{
     grid-area: main;
     /* min-height: calc(100vh); */
 }
+
+#polls_chart{
+    margin-top: 20px;
+    min-width: 600px;
+    min-height: 300px;
+}
+
 .footer {
     grid-area: foot;
 }

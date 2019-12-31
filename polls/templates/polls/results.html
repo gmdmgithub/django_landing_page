@@ -26,7 +26,48 @@
         <a href="{% url 'polls:details' question.id %}">Vote again?</a>
     </div>
 
+<div id="polls_chart">
 </div>
+
+<script>
+    let val = {
+        'scaleX':[],
+        'series':[],
+    };
+    
+    async function callData(){
+        const response = await fetch("{% url 'polls:vote_results' question.id %}");
+        return await response.json();
+    }
+
+    callData()
+        .then(res=>{
+            res.forEach(re=>{
+               Object.keys(re).forEach(r=>{
+                    //console.log(r, re[r])
+                    val.scaleX.push(r);
+                    val.series.push(re[r]);
+               })
+                // place here
+                renderResults(val)
+            })
+        })
+        .catch(err=>console.log(`problem with getting data ${err}`));
+
+    {% comment %} 
+    // It was a case 
+    {% for choice in question.choice_set.all %}
+         scaleX.push("{{choice.choice_text}}");
+         series.push({{choice.votes}});
+    {% endfor %} 
+    {% endcomment %}
+
+    
+
+</script>
+
+</div>
+
 
 
 {% endblock content %}
