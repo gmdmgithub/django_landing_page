@@ -5,9 +5,12 @@ from django.contrib import messages
 from django.urls import reverse
 # Create your views here.
 
+from bokeh.palettes import Spectral6
 from bokeh.plotting import figure
+from bokeh.transform import factor_cmap
 from bokeh.embed import components
 from bokeh.models import HoverTool
+from bokeh.models import ColumnDataSource
 
 from .models import Question, Choice
 
@@ -35,20 +38,69 @@ def details(request, pk):
 
     return render(request, 'polls/details.html', context)
 
+
+def create_bokeh_circle_plot(x_val, y_val):
+    
+    title = "Votes results in bokeh figure"
+    x_label = "Answers related to question"
+    y_label = "Number of votes"
+    plot = figure(title=title,
+                tools="pan,wheel_zoom,box_zoom,reset, hover", #toolbar_location=None,
+                plot_width=700,plot_height=350,
+                x_axis_label=x_label, y_axis_label=y_label
+                )
+    plot.circle(x_val,y_val, size=20, color="blue")
+
+    plot.title.text_font_size = "16pt"
+    plot.title.align = "center"
+    plot.background_fill_color = "lightgrey"
+    plot.border_fill_color = "whitesmoke"
+    plot.min_border_left = 40
+    plot.min_border_right = 40
+
+    return components(plot)
+
+def create_bokeh_bar_plot(x_val, y_val):
+
+    source = ColumnDataSource(data=dict(x_val=x_val, y_val=y_val))
+
+    x_label = "Answers related to question"
+    y_label = "Number of votes"
+
+    p = figure(x_range=x_val, plot_height=350, 
+            tools = "pan,wheel_zoom,box_zoom,reset,poly_select,tap,save,crosshair",
+            x_axis_label=x_label, y_axis_label=y_label,
+            title="Votes count")
+    
+    p.vbar(x='x_val', top='y_val', width=0.3, source=source, legend_field="x_val",
+        line_color='white', fill_color=factor_cmap('x_val', palette=Spectral6, factors=x_val))
+
+    p.xgrid.grid_line_color = None
+    
+    p.y_range.start = 0
+    p.toolbar.logo = None
+    p.title.align = "center"
+    p.y_range.end =  max(y_val) + 2
+    p.legend.orientation = "horizontal"
+    p.legend.location = "top_center"
+
+
+    return components(p)
+
 def results(request, pk):
     
     results = get_object_or_404(Question, pk=pk)
-    
-    
-    plot = figure()
     # x_val =[c.choice_text for c in results.choice_set.all()]
-    x_val, y_val =zip(*[ [i+1, c.votes] for i, c in enumerate(results.choice_set.all())])
-    print(x_val, y_val)
-    plot.circle(x_val,y_val, size=20, color="blue")
+    
+    val =[ [i+1, c.votes, c.choice_text] for i, c in enumerate(results.choice_set.all())]
+    # val =[ [c.choice_text, c.votes] for c in results.choice_set.all()]
+    x_val, y_val, _ = zip(*val)
+    script, div = create_bokeh_circle_plot(x_val, y_val)
 
-    script, div = components(plot)
+    _, y_val, x_val = zip(*val)
+    script2, div2 = create_bokeh_bar_plot(x_val, y_val)
 
-    context = {'title':'results page', 'question':results, 'script':script, 'div':div}
+    context = {'title':'results page', 'question':results, 'script':script, 'div':div, 'script2':script2, 'div2':div2}
 
     return render(request, 'polls/results.html', context)
 
