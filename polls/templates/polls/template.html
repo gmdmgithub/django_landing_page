@@ -9,7 +9,12 @@
     <link rel="shortcut icon" href="{% static '/img/favicon.ico' %}" type="image/x-icon">
     <title>Polling {{ title }}</title>
     <link rel="stylesheet" href="{% static '/css/polls.css' %}">
+    
+    <link href="http://cdn.pydata.org/bokeh/release/bokeh-1.4.0.min.css" rel=”stylesheet” type=”text/css”>
+    <link href="http://cdn.pydata.org/bokeh/release/bokeh-widgets-1.4.0.min.css" rel=”stylesheet” type=”text/css”>
+    
     <script src="https://cdn.zingchart.com/zingchart.min.js"></script>
+
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css">
 </head>
 <body>
@@ -22,5 +27,12 @@
      </div> <!-- class="container-fluid" -->
 {% include 'polls/footer.html' %}
 <script src="{% static '/js/polls.js' %}"></script>
+
+<script src="https://cdn.bokeh.org/bokeh/release/bokeh-1.4.0.min.js"></script>
+<script src="https://cdn.bokeh.org/bokeh/release/bokeh-widgets-1.4.0.min.js"></script>
+<script src="https://cdn.bokeh.org/bokeh/release/bokeh-tables-1.4.0.min.js"></script>
+<script src="https://cdn.bokeh.org/bokeh/release/bokeh-api-1.4.0.min.js"></script>
+ 
+
 </body>
 </html>

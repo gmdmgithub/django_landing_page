@@ -1,6 +1,6 @@
 
 function renderResults(val){
-
+    // render with https://www.zingchart.com/
     const charConfig = {
         type: "bar3d",
         plot: {
@@ -9,7 +9,8 @@ function renderResults(val){
                 "text":"%kl gets <br>%v %t.",
                 "placement":"node:top",
                 "padding":"10%",
-                "border-radius":"5px"
+                "border-radius":"5px",
+                "background-color":"#ff9999",
               }
         },
         "title": {

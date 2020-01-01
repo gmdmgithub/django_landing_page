@@ -5,6 +5,10 @@ from django.contrib import messages
 from django.urls import reverse
 # Create your views here.
 
+from bokeh.plotting import figure
+from bokeh.embed import components
+from bokeh.models import HoverTool
+
 from .models import Question, Choice
 
 
@@ -34,7 +38,17 @@ def details(request, pk):
 def results(request, pk):
     
     results = get_object_or_404(Question, pk=pk)
-    context = {'title':'results page', 'question':results}
+    
+    
+    plot = figure()
+    # x_val =[c.choice_text for c in results.choice_set.all()]
+    x_val, y_val =zip(*[ [i+1, c.votes] for i, c in enumerate(results.choice_set.all())])
+    print(x_val, y_val)
+    plot.circle(x_val,y_val, size=20, color="blue")
+
+    script, div = components(plot)
+
+    context = {'title':'results page', 'question':results, 'script':script, 'div':div}
 
     return render(request, 'polls/results.html', context)
 
