@@ -33,8 +33,17 @@
     {{div | safe}}
 
     {{div2 | safe}}
+
+    
+
 </div>
 
+<div id="chartdiv">
+
+</div>
+<div>
+<canvas id="myChart" width="600" height="300"></canvas>
+</div>
 </div>
 
 
@@ -62,7 +71,9 @@
                     val.series.push(re[r]);
                })
                 // place here
-                renderResults(val)
+                renderResults(val);
+                render_am_chartjs(val);
+                render_chart_js(val);
             })
         })
         .catch(err=>console.log(`problem with getting data ${err}`));
