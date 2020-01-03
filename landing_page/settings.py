@@ -44,6 +44,7 @@ INSTALLED_APPS = [
 
     'main',
     'polls',
+    'posts',
 ]
 
 MIDDLEWARE = [
