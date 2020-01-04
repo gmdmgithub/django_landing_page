@@ -1,0 +1,16 @@
+{% extends 'posts/template.html' %}
+{% load i18n %}
+
+{% load static %}
+
+{% block content %}
+
+    {% for p in posts %}
+
+        <h3>{{p.title}} </h3>
+        <p>By {{p.author}} on {{p.post_date}}</p>
+        <p>{{p.content}}</p>
+
+    {% endfor %}
+
+{% endblock content %}

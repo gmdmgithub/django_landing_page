@@ -1,0 +1,66 @@
+*, ::after, ::before {
+    box-sizing: border-box;
+}
+
+:root {
+    --btn-primary-color: lightgreen;
+    --btn-secondary-color: orange;
+    --main-colour: #444;
+    --bg-colour: #f4f4f4;
+    --primary-color: #cc0000;
+	--secondary-color: #7c0000;
+
+  }
+
+@import url('https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700&display=swap');
+*{
+    margin:0;
+    padding: 0;
+    font-family:'Poppins', sans-serif
+
+}
+
+a{
+    text-decoration: none;
+}
+
+/* sticky footer from https://css-tricks.com/couple-takes-sticky-footer/ */
+html, body {
+    height: 100%;
+}
+body {
+    display: grid;
+    grid-gap: 2px;
+    height: 100%;
+    grid-template-rows: 40px 1fr 50px;
+    grid-template-columns: 30% 1fr;
+
+    grid-template-areas:
+              "nav nav"
+              "side main"
+              "foot foot";
+}
+nav {
+    grid-area: nav;
+}
+
+.side{
+    grid-area: side;
+}
+
+.container{
+    grid-area: main;
+    /* min-height: calc(100vh); */
+}
+
+.footer {
+    grid-area: foot;
+}
+/* sticky footer end*/
+
+
+body{
+    width: 90%;
+    min-height: 100vh;
+    margin: 0 auto;
+}
