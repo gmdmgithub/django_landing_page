@@ -13,10 +13,10 @@ class Post(Audit):
     title = models.CharField(max_length=200)
     content = models.TextField()
     post_date = models.DateTimeField(default=timezone.now)  #auto_now_add=True - cannot be changed
-    thumbs_up = models.IntegerField(default=0)
-    thumbs_down = models.IntegerField(default=0)
     author = models.ForeignKey(User, on_delete=models.CASCADE)
 
+    def __str__(self):
+        return f'{self.title}'
 class Comment(Audit):
     conttent = models.TextField()
     author = models.ForeignKey(User, on_delete=models.CASCADE)

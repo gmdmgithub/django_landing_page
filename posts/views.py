@@ -2,6 +2,8 @@ from django.shortcuts import render, HttpResponse
 
 from django.http import Http404, HttpResponseRedirect, JsonResponse
 
+from .models import Post
+
 #dummy data to avoid DB 
 posts = [
     {
@@ -23,9 +25,11 @@ posts = [
 def home(request):
     # return HttpResponse('Hi there')
 
+    post_db = Post.objects.all()
+
     context = {
             'title':'main post page', 
-            'posts':posts
+            'posts':post_db
         }
 
     return render(request,'posts/main.html', context)

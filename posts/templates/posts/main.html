@@ -8,7 +8,7 @@
     {% for p in posts %}
 
         <h3>{{p.title}} </h3>
-        <p>By {{p.author}} on {{p.post_date}}</p>
+        <p>By {{p.author}} on {{p.post_date|date:"SHORT_DATE_FORMAT"}}</p>
         <p>{{p.content}}</p>
 
     {% endfor %}
