@@ -2,6 +2,7 @@ from django.shortcuts import render, HttpResponse
 
 from django.http import Http404, HttpResponseRedirect, JsonResponse
 
+#dummy data to avoid DB 
 posts = [
     {
         'author': 'Alex Magic',
