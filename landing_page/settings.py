@@ -151,3 +151,4 @@ STATICFILES_DIRS = [
 ]
 
 LOGIN_REDIRECT_URL='main'
+LOGIN_URL='users:login'
