@@ -3,4 +3,5 @@
 *.log
 crm/db*
 __pycache__/
+profiles_img/
 crm/accounts/migrations/0*

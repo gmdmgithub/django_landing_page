@@ -17,3 +17,19 @@ body{
               "foot foot";
 }
 
+.account-img{
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+}
+.section > .media{
+    display: flex;
+}
+
+.section > .media > .media-body{
+    padding: 20px;
+}
+
+.account-heading{
+    font-size: 1.7rem;
+}
