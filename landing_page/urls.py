@@ -25,4 +25,5 @@ urlpatterns += i18n_patterns(
     url(r'', include('main.urls')),
     url(r'polls/', include('polls.urls')),
     url(r'posts/', include('posts.urls')),
+    url(r'users/', include('users.urls')),
 )

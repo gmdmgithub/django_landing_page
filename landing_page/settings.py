@@ -45,6 +45,7 @@ INSTALLED_APPS = [
     'main',
     'polls',
     'posts',
+    'users',
 ]
 
 MIDDLEWARE = [
@@ -148,3 +149,5 @@ MEDIA_URL = '/img/'
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, STATIC)
 ]
+
+LOGIN_REDIRECT_URL='main'

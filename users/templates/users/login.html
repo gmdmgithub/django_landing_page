@@ -1,0 +1,33 @@
+{% extends 'users/template.html' %}
+{% load static %}
+{% load i18n %}
+
+{% block content %}
+<div class="content">
+
+    {% if messages %}
+            <div class="flash-message">
+            {% for message in messages %}
+                <p class="{{message.tags}}">
+                    {{message}}
+                </p>
+            {% endfor %}
+            </div>
+        {% endif %}
+    <h2>User login page</h2>
+
+    <form method="post">
+        {% csrf_token %}
+        
+        {% include "form.html" %}
+        
+        <div>
+            <button type="submit">Log in</button>
+        </div>
+    </form>
+
+    <div>
+        <small>Don't Have Account? <a href="{% url 'users:register' %}">Register</a></small>
+    </div>
+</div>
+{% endblock content %}

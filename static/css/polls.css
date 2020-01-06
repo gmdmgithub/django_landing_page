@@ -20,15 +20,12 @@
 
 }
 
-a{
-    text-decoration: none;
-}
 
 /* sticky footer from https://css-tricks.com/couple-takes-sticky-footer/ */
 html, body {
     height: 100%;
 }
-body {
+.container {
     display: grid;
     grid-gap: 2px;
     height: 100%;
@@ -52,8 +49,6 @@ nav > *{
     margin: 0 10px;
 }
 
-
-
 .side{
     grid-area: side;
     background-color: #9bb191;
@@ -73,9 +68,7 @@ nav > *{
     text-align: justify;
 }
 
-
-
-.container{
+.content{
     grid-area: main;
     /* min-height: calc(100vh); */
 }

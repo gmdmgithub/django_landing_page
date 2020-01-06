@@ -8,4 +8,11 @@
     <a href="{% url 'posts:main' %}">
         <i class="fas fa-blog"></i>
     </a>
+    {% if user.is_authenticated %} 
+        <a href="{% url 'users:logout' %}"><i class="fas fa-sign-out-alt"></i></a>
+        <a href="{% url 'users:profile' %}"><i class="fas fa-portrait"></i></a>
+    {% else %}
+        <a href="{% url 'users:login' %}"><i class="fas fa-sign-in-alt"></i></a>
+    {% endif %}
+
 </nav>

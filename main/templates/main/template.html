@@ -1,33 +1,24 @@
+{% extends 'base.html' %}
 {% load static %}
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Main page</title>
-    <link rel="shortcut icon" href="{% static '/img/favicon.ico' %}" type="image/x-icon">
+{% load i18n %}
+
+{% block header %}
     <link rel="stylesheet" href="{% static '/css/main.css' %}">
+{% endblock header %}
 
-    <style>
-        {% include "links.css" %}
-    </style>
+{% block inline_style %}
+    {% include "links.css" %}
+{% endblock inline_style %}    
 
-</head>
-<body>
+{% block navigation %}
+    {% include 'main/navigation.html' %}
+{% endblock navigation %}
 
-<div class="container">
+{% block footer %}
+    {% include 'footer.html' %}
+{% endblock footer %}
 
-{% include 'main/navigation.html' %}
+{% block bootom_scripts %}
+    <script src="{% static '/js/main.js' %}"></script>
+{% endblock bootom_scripts %}
 
-    {% block content %}
-
-    {% endblock content %}
-
-{% include 'footer.html' %}
-
-</div> <!-- class="container-fluid" -->
-
-<script src="{% static '/js/main.js' %}"></script>
-</body>
-</html>

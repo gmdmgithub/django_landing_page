@@ -1,0 +1,47 @@
+:root {
+    --btn-primary-color: lightgreen;
+    --btn-secondary-color: orange;
+    --main-colour: #444;
+    --bg-colour: #f4f4f4;
+    --primary-color: #cc0000;
+	--secondary-color: #7c0000;
+
+  }
+@import url('https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700&display=swap');
+*{
+    margin:0;
+    padding: 0;
+    font-family:'Poppins', sans-serif
+
+}
+/* sticky footer from https://css-tricks.com/couple-takes-sticky-footer/ */
+html, body {
+    height: 100%;
+}
+.container {
+    display: grid;
+    
+}
+nav {
+    grid-area: nav;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+nav >*{
+    width: 25px;
+}
+
+.side{
+    grid-area: side;
+}
+
+.content{
+    grid-area: main;
+    padding: 0 20px;
+    /* min-height: calc(100vh); */
+}
+.footer {
+    grid-area: foot;
+}
+/* sticky footer end*/

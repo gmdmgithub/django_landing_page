@@ -1,0 +1,23 @@
+{% extends 'users/template.html' %}
+{% load static %}
+{% load i18n %}
+
+{% block content %}
+<div class="content">
+    <h2>User registration will be here!</h2>
+
+    <form method="post">
+        {% csrf_token %}
+        
+        {% include "form.html" with form=registration_form %}
+        
+        <div>
+            <button type="submit">Sign up</button>
+        </div>
+    </form>
+
+    <div>
+        <small>Already Have an Account? <a href="{% url 'users:login' %}">Sign in</a></small>
+    </div>
+</div>
+{% endblock content %}

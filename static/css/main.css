@@ -10,6 +10,10 @@
 
 }
 
+a, a:link, a:visited{
+    text-decoration: none!important;
+    color: inherit;
+}
 
 .container{
     position: relative;
@@ -108,6 +112,20 @@ header ul li a:hover::before{
 header ul li a.active::before{
     width: 40px;
 }
+
+header ul li:nth-child(5) a:hover::before{
+    width: 0;
+}
+header ul li:nth-child(5){
+    margin-right: -90px;
+    color: white;
+}
+
+.fa-sign-in-alt, 
+.fa-sign-out-alt{
+    cursor: pointer;
+}
+
 .content{
     display: flex;
     justify-content: space-between;
@@ -408,6 +426,10 @@ header ul li a.active::before{
         color: #333 !important;
         font-size: 36px;
 
+    }
+    header ul li:nth-child(5){
+        margin: 0;
+        color: black;
     }
 
     header ul li a:hover::before,

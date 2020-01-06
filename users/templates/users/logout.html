@@ -1,0 +1,13 @@
+{% extends 'users/template.html' %}
+{% load static %}
+{% load i18n %}
+
+{% block content %}
+<div class="content">
+    <h2>You have been logout</h2>
+    <div>
+        Login Again? <a href="{% url 'users:login' %}">Log in</a></small>
+    </div>
+
+</div>
+{% endblock content %}
