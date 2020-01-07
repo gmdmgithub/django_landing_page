@@ -6,11 +6,14 @@
 {% block content %}
     <div class="content">
         {% for p in posts %}
-
-            <h3>{{p.title}} </h3>
-            <p>By {{p.author}} on {{p.post_date|date:"SHORT_DATE_FORMAT"}}</p>
-            <p>{{p.content}}</p>
-
+            <article class="article-section">
+                <img class="article-image" src={{ p.author.profile.image.url}}/>
+                <div class="article-text">
+                    <div class="article-posted"><span>By {{p.author}}</span> {{p.post_date|date:"SHORT_DATE_FORMAT"}}</div>
+                    <div class="article-title"><a href="{% url 'posts:post-detail' p.id %}">{{p.title}}</a></div>
+                    <div class="article-content">{{p.content}}</div>
+                </div>
+            </article>
         {% endfor %}
     </div>
 {% endblock content %}

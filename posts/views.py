@@ -4,6 +4,9 @@ from django.http import Http404, HttpResponseRedirect, JsonResponse
 
 from .models import Post
 
+#different approach - class based view
+from django.views.generic import ListView, DetailView
+
 #dummy data to avoid DB 
 posts = [
     {
@@ -33,3 +36,13 @@ def home(request):
         }
 
     return render(request,'posts/main.html', context)
+
+
+class PostListView(ListView):
+    model = Post
+    template_name='posts/main.html'  # <app>/<model>_<viewtype>.html - standard naming convention 
+    context_object_name = 'posts'
+    ordering =['-post_date']
+
+class PostDetailView(DetailView):
+    model = Post

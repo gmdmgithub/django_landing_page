@@ -106,8 +106,6 @@ def results(request, pk):
 
 def vote(request, pk):
 
-    print(request.POST.get('choice', None))
-
     question = get_object_or_404(Question, pk=pk)
     try:
         selected_choice = question.choice_set.get(pk=request.POST['choice'])

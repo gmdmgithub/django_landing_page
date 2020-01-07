@@ -4,7 +4,7 @@ from . import views
 
 from django.contrib.auth import views as auth_views
 
-app_name='users'
+app_name='profiles'
 
 urlpatterns = [
 
