@@ -5,7 +5,13 @@ from django.http import Http404, HttpResponseRedirect, JsonResponse
 from .models import Post
 
 #different approach - class based view
-from django.views.generic import ListView, DetailView
+from django.views.generic import (
+    ListView,
+    DetailView,
+    CreateView,
+    UpdateView,
+    DeleteView
+)
 
 #dummy data to avoid DB 
 posts = [
@@ -46,3 +52,11 @@ class PostListView(ListView):
 
 class PostDetailView(DetailView):
     model = Post
+
+class PostCreateView(CreateView):
+    model = Post
+    fields = ['title', 'content']
+
+    def form_valid(self, form):
+        form.instance.author = self.request.user
+        return super().form_valid(form)
