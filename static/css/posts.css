@@ -25,7 +25,7 @@ body{
     box-shadow: 3px 2px 5px;
     border-radius: 5px;
     margin: 7px 0;
-    width: 90%;
+    width: var(--section-width);
     
 }
 .article-section > *{
@@ -70,4 +70,15 @@ body{
 }
 .article-content{
     font-size: 1.1rem;
+}
+.pagination{
+    width: var(--section-width);
+    display: flex;
+    justify-content: center;
+    align-items: baseline;
+}
+.pagination span{
+    margin: 0 5px;
+    font-size: 0.7rem;
+    margin-right: 16px;
 }

@@ -1,6 +1,7 @@
 .vscode/
 *.xlsx
 *.log
+*.json
 crm/db*
 __pycache__/
 profiles_img/

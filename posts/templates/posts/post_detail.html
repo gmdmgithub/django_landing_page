@@ -11,7 +11,8 @@
             <div class="article-text">
                 <div class="article-posted">
                     <div>
-                        <span>By {{object.author}}</span> {{object.post_date|date:"SHORT_DATE_FORMAT"}}
+                        <span>By <a href="{% url 'posts:user-main' object.author %}">{{object.author}}</a></span> 
+                        {{object.post_date|date:"SHORT_DATE_FORMAT"}}
                     </div>
                     {% if object.author == user %}
                         <div>

@@ -1,6 +1,12 @@
 *, ::after, ::before {
     box-sizing: border-box;
 }
+
+:root {
+    --section-width:90%;
+
+  }
+
 @import url('https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700&display=swap');
 *{
     margin:0;
@@ -51,6 +57,6 @@ form .submit button,
     min-width: 100px;
     margin: 20px 20px 0 0;
     text-align: center;
-    padding: 2px;
+    padding: 2px 20px;
     cursor: pointer;
 }

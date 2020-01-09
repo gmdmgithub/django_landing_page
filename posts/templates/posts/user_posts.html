@@ -6,14 +6,18 @@
 {% block content %}
     <div class="content">
     {% if user.is_authenticated %} 
-    <div class="article-create"><a class="btn" href="{% url 'posts:post-create'%}">Add new post</a></div>
+    <h2>Posts by {{view.kwargs.username}} ({{page_obj.paginator.count}})</h2>
+    <div class="article-create">
+    <a class="btn" href="{% url 'posts:main'%}">Back to the list
+    <a class="btn" href="{% url 'posts:post-create'%}">Add new post
+    </a></div>
     {% endif %}
         {% for p in posts %}
             <article class="article-section">
                 <img class="article-image" src={{ p.author.profile.image.url}}/>
                 <div class="article-text">
                     <div class="article-posted">
-                            <span>By <a href="{% url 'posts:user-main' p.author %}">{{p.author}}</a></span> {{p.post_date|date:"SHORT_DATE_FORMAT"}}
+                            <span>By {{p.author}}</span> {{p.post_date|date:"SHORT_DATE_FORMAT"}}
                     </div>
                     <div class="article-title"><a href="{% url 'posts:post-detail' p.id %}">{{p.title}}</a></div>
                     <div class="article-content">{{p.content}}</div>
