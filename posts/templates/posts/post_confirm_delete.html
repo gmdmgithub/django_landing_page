@@ -4,15 +4,15 @@
 
 {% block content %}
 <div class="content">
-    <h2>Create new post</h2>
+    <h2>Are you sure you want to delete the post?</h2>
+    <h3>{{object.title}}</h3>
 
     <form method="post">
         {% csrf_token %}
         
-        {% include "form.html" %}
-        
         <div class="submit">
-            <button type="submit" class="btn danger">Save</button>
+            <button type="submit" class="btn danger">Yes, Delete</button>
+            <a class="btn" href="{% url 'posts:post-detail' object.id %}">Cancel</a>
         </div>
     </form>
 </div>

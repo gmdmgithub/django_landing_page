@@ -24,7 +24,7 @@ body{
     border: 1px solid rgba(170, 168, 168, 0.7);
     box-shadow: 3px 2px 5px;
     border-radius: 5px;
-    margin: 7px;
+    margin: 7px 0;
     width: 90%;
     
 }
@@ -47,11 +47,20 @@ body{
     font-size: 0.8rem;
     border-bottom: 1px solid;
     width: 50%;
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
 }
+
 .article-posted span{
     font-size: 1.1rem;
     color: blue;
 }
+
+.article-posted .article-edit a .btn{
+    width: 70px;
+}
+
 .article-title{
     font-size: 1.5rem;
     margin: 3px 0;

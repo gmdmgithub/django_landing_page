@@ -5,10 +5,21 @@
 
 {% block content %}
     <div class="content">
+        <div><a class="btn" href="{% url 'posts:main'%}"><< Back</a></div>
         <article class="article-section">
             <img class="article-image" src={{ object.author.profile.image.url}}/>
             <div class="article-text">
-                <div class="article-posted"><span>By {{object.author}}</span> {{object.post_date|date:"SHORT_DATE_FORMAT"}}</div>
+                <div class="article-posted">
+                    <div>
+                        <span>By {{object.author}}</span> {{object.post_date|date:"SHORT_DATE_FORMAT"}}
+                    </div>
+                    {% if object.author == user %}
+                        <div>
+                            <a class="btn btn-info" href="{% url 'posts:post-update' object.id %}">Edit</a>
+                            <a class="btn btn-danger" href="{% url 'posts:post-delete' object.id %}">Delete</a>
+                        </div>
+                    {% endif %}
+                </div>
                 <div class="article-title">{{object.title}} </div>
                 <div class="article-content">{{object.content}}</div>
             </div>
