@@ -11,6 +11,11 @@ from .forms import UserRegistrationForm, UserUpdateForm, ProfieUpdateForm
 
 from django.contrib.auth import views as auth_views
 
+from django.http import HttpResponse
+
+def empty_view(request):
+    return HttpResponse('')
+
 def register(request):
 
     if request.method == 'POST':
